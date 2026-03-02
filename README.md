@@ -9,7 +9,7 @@ I treat every problem as an engineering task. Each solution includes:
 * **Testing:** Local test cases to ensure reliability.
 
 ## 📊 Progress
-- **Problems Solved:** 4
+- **Problems Solved:** 5
 
 ## 🛠️ How to run
 1. Clone the repo: `gh repo clone mir-src/algorithmic-problem-solving`
