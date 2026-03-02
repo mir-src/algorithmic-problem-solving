@@ -1,0 +1,54 @@
+"""
+Problem: 217. Contains Duplicate
+Difficulty: Easy
+URL: https://leetcode.com/problems/contains-duplicate/
+
+My Approach:
+(1) We use a dictionary to remember every number, when we go through the list the dictionary keeps track if that number showed up before, if it did we return True, if there are no duplicates we return False.
+(2) We use a set data type, it's just a dictionary without values (a hash table with only keys).
+
+Complexity Analysis:
+- Time Complexity: O(n) -> Because we go through the list only once from the first element until the last element
+- Space Complexity: O(n) -> (1) We declare 1 dictionary, the dictionary is just as big as the size of the input (n). (2) We declare 1 set, the set is just as big as the input (n).
+"""
+class Solution:
+    def containsDuplicate_dict(self, nums: list[int]) -> bool:
+        dictionary = {}
+        for i in nums:
+            if i in dictionary and dictionary[i] == True:
+                return True
+            else:
+                dictionary[i] = True
+        return False
+    def containsDuplicate_set(self, nums: list[int]) -> bool:
+        s = set()
+        for i in nums:
+            if i in s:
+                return True
+            s.add(i)
+        return False
+
+if __name__ == "__main__":
+    solver = Solution()
+
+    # Test 1: A number appears at least twice
+    print("\n")
+    print("---Dict Version---")
+    print(f"Test 1: {solver.containsDuplicate_dict([1,2,3,1])}")
+    print("---Set Version---")
+    print(f"Test 1: {solver.containsDuplicate_set([1,2,3,1])}")
+
+    # Test 2: Every number appears only once
+    print("\n")
+    print("---Dict Version---")
+    print(f"Test 2: {solver.containsDuplicate_dict([1,2,3,4])}")
+    print("---Set Version---")
+    print(f"Test 2: {solver.containsDuplicate_set([1,2,3,4])}")
+
+    # Test 3: A number appears more than two times
+    print("\n")
+    print("---Dict Version---")
+    print(f"Test 3: {solver.containsDuplicate_dict([1,1,1,3,3,4,3,2,4,2])}")
+    print("---Set Version---")
+    print(f"Test 3: {solver.containsDuplicate_set([1,1,1,3,3,4,3,2,4,2])}")
+
